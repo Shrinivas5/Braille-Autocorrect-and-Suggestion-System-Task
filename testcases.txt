@@ -1,0 +1,18 @@
+Sample Test Cases for Braille Autocorrect System
+
+| QWERTY Braille Input      | Intended Word | System Suggestion | Edit Distance | Notes                        |
+|-------------------------- |--------------|------------------|--------------|------------------------------|
+| ['DK', 'D', 'K']          | cat          | cat              | 1            | Correct input                |
+| ['DK', 'D', 'DK']         | cat          | cat              | 1            | Typo in last letter          |
+| ['DK', 'D']               | cat          | cat              | 1            | Missing last letter          |
+| ['DK', 'D', 'K', 'D']     | cat          | cat              | 2            | Extra letter at the end      |
+| ['DK', 'D', 'O']          | can          | cat              | 1            | Close Braille pattern        |
+| ['D', 'D', 'K']           | bat          | bat              | 1            | Typo in first letter         |
+| ['DK', 'D', 'K', 'K']     | cat          | cat              | 2            | Extra letter at the end      |
+| ['DK', 'D', '']           | cat          | cat              | 1            | Empty string as last letter  |
+| ['DK', 'Q', 'K']          | cat          | cat              | 1            | Typo in middle letter        |
+| ['DK', 'D', 'K', 'Q']     | cat          | cat              | 2            | Extra unrelated letter       |
+| ['DK', 'D', 'K', 'DK']    | cat          | cat              | 2            | Repeated last letter         |
+| ['DK', 'D', 'K', 'D', 'K']| cat          | cat              | 3            | Multiple extra letters       |
+| ['K', 'D', 'DK']          | mat          | mat              | 1            | Typo in first letter         |
+| ['DK', 'D', 'K', 'O']     | cat          | cat              | 2            | Extra letter, close pattern  | 
